@@ -1,18 +1,58 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool bandera = false;
+
+  void cambiarBandera() {
+    setState(() {
+      bandera = true;
+    });
+  }
+
+  void cambiarBanderaYRecargar() {
+    setState(() {
+      bandera = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      title: 'MyApp',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Material App Bar'),
+          title: Text('MyApp'),
         ),
         body: Center(
-          child: Text('Hello World'),
+          child: bandera
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => cambiarBanderaYRecargar(),
+                      child: Text('Botón 1'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => cambiarBanderaYRecargar(),
+                      child: Text('Botón 2'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => cambiarBanderaYRecargar(),
+                      child: Text('Botón 3'),
+                    ),
+                  ],
+                )
+              : ElevatedButton(
+                  onPressed: () => cambiarBandera(),
+                  child: Text('Botón'),
+                ),
         ),
       ),
     );
