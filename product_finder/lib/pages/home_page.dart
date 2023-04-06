@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:product_finder/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -10,51 +11,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool bandera = false;
 
-  void cambiarBandera() {
-    setState(() {
-      bandera = true;
-    });
-  }
-
-  void cambiarBanderaYRecargar() {
-    setState(() {
-      bandera = false;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MyApp',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('MyApp'),
-        ),
         body: Center(
-          child: bandera
-              ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () => cambiarBanderaYRecargar(),
-                      child: Text('Botón 1'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () => cambiarBanderaYRecargar(),
-                      child: Text('Botón 2'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () => cambiarBanderaYRecargar(),
-                      child: Text('Botón 3'),
-                    ),
-                  ],
-                )
-              : ElevatedButton(
-                  onPressed: () => cambiarBandera(),
-                  child: Text('Botón'),
-                ),
+          child: Scaffold(
+            body: bandera ? temp : LoginPage(),
+          ),
         ),
       ),
     );
   }
 }
+
+Widget temp = Container(
+  child: Text('Hola mundo'),
+);
