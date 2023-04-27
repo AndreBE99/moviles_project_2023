@@ -5,12 +5,14 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.0-277.0.dev <4.0.0"
+  sdk: ">=2.19.5 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  flutter_barcode_scanner:
+  speech_to_text: ^6.1.1
 
 dev_dependencies:
   flutter_test:
