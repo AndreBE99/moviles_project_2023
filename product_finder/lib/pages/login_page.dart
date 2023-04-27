@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:product_finder/auth/bloc/auth_bloc.dart';
 
 import 'register_page.dart';
 
@@ -221,6 +224,25 @@ class LoginPage extends StatelessWidget {
                                 ],
                               ),
                             ),
+                          ),
+                          InkWell(
+                            child: Container(
+                              color: Colors.orange[600],
+                              padding: EdgeInsets.all(12),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  FaIcon(FontAwesomeIcons.robot),
+                                  SizedBox(width: 8),
+                                  Text("Iniciar como anonimo")
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              // Bloc add event autenticacion con google event
+                              BlocProvider.of<AuthBloc>(context)
+                                  .add(AnonymousAuthEvent());
+                            },
                           ),
                         ],
                       ),

@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Laptop MacBook Pro",
+        "imageUrl": "https://m.media-amazon.com/images/I/41WFC9Dc1YL._AC_SX466_.jpg",
+        "description": "Apple 2022 Laptop MacBook Pro con Chip M2 : Pantalla Retina de 13 Pulgadas, 8GB de RAM, Almacenamiento SSD de 256 GB, TouchBar, Teclado retroiluminado, cámara FaceTime HD.Gris Espacial",
+        "price": "30,000.00",
+        "url": "https://www.amazon.com.mx/Apple-Laptop-MacBook-Chip-Almacenamiento/dp/B0B3BQWCBX/ref=sr_1_4?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3KXJ43E5X2M7H&keywords=mac%2Bpro&qid=1681064646&s=electronics&sprefix=mac%2Bpro%2Celectronics%2C168&sr=1-4&ufe=app_do%3Aamzn1.fos.66c34496-0d28-4d73-a0a1-97a8d87ec0b2&th=1"
+    },
+    {
+        "name": "Laptop MacBook Pro 2",
+        "imageUrl": "https://m.media-amazon.com/images/I/41WFC9Dc1YL._AC_SX466_.jpg",
+        "description": "Ejemplo 2 Apple 2022 Laptop MacBook Pro con Chip M2 : Pantalla Retina de 13 Pulgadas, 8GB de RAM, Almacenamiento SSD de 256 GB, TouchBar, Teclado retroiluminado, cámara FaceTime HD.Gris Espacial",
+        "price": "30,000.00",
+        "url": "https://www.amazon.com.mx/Apple-Laptop-MacBook-Chip-Almacenamiento/dp/B0B3BQWCBX/ref=sr_1_4?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3KXJ43E5X2M7H&keywords=mac%2Bpro&qid=1681064646&s=electronics&sprefix=mac%2Bpro%2Celectronics%2C168&sr=1-4&ufe=app_do%3Aamzn1.fos.66c34496-0d28-4d73-a0a1-97a8d87ec0b2&th=1"
+    }
+]

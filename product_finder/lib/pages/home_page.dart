@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:product_finder/pages/search_pages/barcode_page.dart';
-import 'package:product_finder/pages/search_pages/speech_page.dart';
-import 'package:product_finder/pages/search_pages/text_page.dart';
+import 'package:product_finder/pages/favorites_page.dart';
 import 'package:product_finder/pages/login_page.dart';
+
+import 'home.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -12,169 +12,69 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool bandera = true;
+  int _selectedIndex = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    Home(),
+    Favorites(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Scaffold(
-            body: bandera ? home() : LoginPage(),
-          ),
+          child: Scaffold(body: _widgetOptions.elementAt(_selectedIndex)),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+              backgroundColor: Colors.blue,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Favoritos',
+              backgroundColor: Colors.red,
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black,
+          onTap: _onItemTapped,
         ),
       ),
     );
   }
 }
 
-class home extends StatelessWidget {
-  const home({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: Image.asset(
-              'assets/images/login_bg.jpg',
-              fit: BoxFit.cover,
-              height: MediaQuery.of(context).size.height * 0.25,
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.35),
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Transform.translate(
-                  offset: Offset(0, -60), // mueve 20 pixeles hacia arriba
-                  child: Text(
-                    'ProductFinder',
-                    style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 15),
-                    child: Text(
-                      "Buscar por",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    )),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(4, 20, 4, 15),
-                  child: SizedBox(
-                    width: 200,
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => TextPage()),
-                        );
-                      },
-                      child: Text(
-                        'Texto',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 50),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 15),
-                  child: SizedBox(
-                    width: 200,
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SpeechPage()),
-                        );
-                      },
-                      child: Text(
-                        'Speech to text',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 50),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 15),
-                  child: SizedBox(
-                    width: 200,
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => BarCodePage()),
-                        );
-                      },
-                      child: Text(
-                        'Código de barra',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Row()
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+// import 'package:product_finder/pages/bloc/product_bloc.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:product_finder/pages/result_list_page.dart';
+
+// child: ElevatedButton(
+//           onPressed: () {
+//             BlocProvider.of<ProductBloc>(context).add(LoadProductListEvent());
+//             Navigator.push(
+//               context,
+//               MaterialPageRoute(
+//                 builder: (context) => BlocBuilder<ProductBloc, ProductState>(
+//                   builder: (context, state) {
+//                     if (state is ProductListLoadedState) {
+//                       return ResultList(products: state.productList);
+//                     } else {
+//                       return CircularProgressIndicator();
+//                     }
+//                   },
+//                 ),
+//               ),
+//             );
+//           },
+//           child: Text('Lista de productos'),
+//         ),
