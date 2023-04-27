@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:product_finder/auth/bloc/auth_bloc.dart';
 import 'package:product_finder/pages/favorites_page.dart';
-import 'package:product_finder/pages/login_page.dart';
+// import 'package:product_finder/pages/login_page.dart';
 
 import 'home.dart';
 
@@ -19,9 +21,13 @@ class _HomePageState extends State<HomePage> {
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    if (index == 2) {
+      BlocProvider.of<AuthBloc>(context).add(SignOutEvent());
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
   }
 
   @override
@@ -32,7 +38,7 @@ class _HomePageState extends State<HomePage> {
           child: Scaffold(body: _widgetOptions.elementAt(_selectedIndex)),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
@@ -42,6 +48,11 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.favorite),
               label: 'Favoritos',
               backgroundColor: Colors.red,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.logout),
+              label: 'Logout',
+              backgroundColor: Colors.pink,
             ),
           ],
           currentIndex: _selectedIndex,

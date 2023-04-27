@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
           }
           return Center(
             child: CircularProgressIndicator(),
-          ); // TODO: replace with Splash screen page (opcional)
+          );
         },
       ),
     );

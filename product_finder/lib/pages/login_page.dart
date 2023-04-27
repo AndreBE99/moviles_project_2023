@@ -197,44 +197,27 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 20),
-                          Container(
-                            width: 250,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              color: Colors.blueAccent,
-                            ),
-                            child: Center(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.facebook,
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Text(
-                                    'Iniciar sesión con Facebook',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
                           InkWell(
+                            // borderRadius: BorderRadius.circular(25),
                             child: Container(
-                              color: Colors.orange[600],
+                              color: Colors.grey,
                               padding: EdgeInsets.all(12),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  FaIcon(FontAwesomeIcons.robot),
+                                  Icon(
+                                    Icons.account_circle,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
                                   SizedBox(width: 8),
-                                  Text("Iniciar como anonimo")
+                                  Text(
+                                    "Iniciar como anonimo",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
                                 ],
                               ),
                             ),

@@ -1,4 +1,4 @@
-package com.example.product_finder
+package mx.iteso.bibliobook
 
 import io.flutter.embedding.android.FlutterActivity
 
