@@ -1,69 +1,27 @@
 import 'package:flutter/material.dart';
-// import 'package:product_finder/pages/login_page.dart';
-
-// class HomePage extends StatefulWidget {
-//   HomePage({super.key});
-
-//   @override
-//   State<HomePage> createState() => _HomePageState();
-// }
-
-// class _HomePageState extends State<HomePage> {
-//   bool bandera = true;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Scaffold(
-//         body: Center(
-//           child: Scaffold(
-//             body: bandera ? home() : LoginPage(),
-//           ),
 import 'package:product_finder/pages/search_pages/barcode_page.dart';
 import 'package:product_finder/pages/search_pages/speech_page.dart';
 import 'package:product_finder/pages/search_pages/text_page.dart';
+import 'package:product_finder/pages/login_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key});
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool bandera = true;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Material App Bar'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TextPage()),
-                );
-              },
-              child: Text("Text Page"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SpeechPage()),
-                );
-              },
-              child: Text("Speech Page"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => BarCodePage()),
-                );
-              },
-              child: Text("Barcode Page"),
-            ),
-          ],
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Scaffold(
+            body: bandera ? home() : LoginPage(),
+          ),
         ),
       ),
     );
@@ -134,9 +92,10 @@ class home extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                HomePage()); // Cambiar por el correcto
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => TextPage()),
+                        );
                       },
                       child: Text(
                         'Texto',
@@ -163,9 +122,10 @@ class home extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                HomePage()); // Cambiar por el correcto
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SpeechPage()),
+                        );
                       },
                       child: Text(
                         'Speech to text',
@@ -192,9 +152,11 @@ class home extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                HomePage()); // Cambiar por el correcto
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BarCodePage()),
+                        );
                       },
                       child: Text(
                         'Código de barra',
