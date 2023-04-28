@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:product_finder/auth/bloc/auth_bloc.dart';
-import 'package:product_finder/pages/favorites_page.dart';
-// import 'package:product_finder/pages/login_page.dart';
+import 'package:product_finder/pages/favorites/favorites_page.dart';
 
 import 'home.dart';
 
@@ -15,9 +14,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     Home(),
-    Favorites(),
+    FavoritesPage(),
   ];
 
   void _onItemTapped(int index) {
