@@ -1,45 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:product_finder/models/producto.dart';
+import 'package:product_finder/pages/favorites/bloc/favorites_bloc.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class ProductPage extends StatelessWidget {
+class ProductPage extends StatefulWidget {
   final Product product;
 
-  ProductPage({super.key, required this.product});
+  ProductPage({Key? key, required this.product}) : super(key: key);
+
+  @override
+  _ProductPageState createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
+  late bool isFavorite;
+
+  @override
+  void initState() {
+    super.initState();
+    isFavorite = false;
+  }
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<FavoritesBloc>(context)
+        .add(CheckIsFavoriteEvent(product: widget.product));
+
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          automaticallyImplyLeading: true,
-          leading: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-              size: 24,
-            ),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: true,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+            size: 24,
           ),
-          title: Text(
-            product.name,
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          ),
-          centerTitle: true,
         ),
-        body: Column(mainAxisSize: MainAxisSize.max, children: [
+        title: Text(
+          widget.product.name,
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
           Expanded(
             child: SingleChildScrollView(
               child: Column(mainAxisSize: MainAxisSize.max, children: [
                 Image.network(
-                  product.imageUrl,
+                  widget.product.imageUrl,
                   width: double.infinity,
                   height: 400,
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.contain,
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(15, 5, 15, 0),
@@ -48,7 +68,7 @@ class ProductPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          product.name,
+                          widget.product.name,
                           style: TextStyle(
                             fontFamily: 'Playfair Display',
                             fontSize: 24,
@@ -63,7 +83,7 @@ class ProductPage extends StatelessWidget {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
                           child: Text(
-                            '${product.description}',
+                            '${widget.product.description}',
                             style: TextStyle(
                               fontFamily: 'Playfair Display',
                               fontSize: 15,
@@ -80,7 +100,7 @@ class ProductPage extends StatelessWidget {
                                 thickness: 0.5,
                                 color: Colors.grey[300]),
                             Text(
-                              'Precio: \$${product.price}',
+                              'Precio: \$${widget.product.price}',
                               style: TextStyle(
                                 fontFamily: 'Playfair Display',
                                 color: Color(0xFF1E2429),
@@ -97,7 +117,7 @@ class ProductPage extends StatelessWidget {
                                 EdgeInsetsDirectional.fromSTEB(0, 30, 0, 20),
                             child: InkWell(
                               onTap: () async {
-                                await launchUrl(product.url);
+                                await launchUrl(widget.product.url);
                               },
                               child: Text(
                                 'Visita el sitio web',
@@ -124,23 +144,53 @@ class ProductPage extends StatelessWidget {
             ),
             child: Align(
               alignment: AlignmentDirectional(0, 0),
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-                ),
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('Añadir a Favoritos  '),
-                    Icon(Icons.favorite, color: Colors.white),
-                  ],
-                ),
+              child: BlocConsumer<FavoritesBloc, FavoritesState>(
+                listener: (context, state) {
+                  if (state is FavoriteCheckedState) {
+                    setState(() {
+                      isFavorite = state.isFavorite;
+                    });
+                  }
+                  if (state is FavoriteAddedState ||
+                      state is FavoriteRemovedState) {
+                    setState(() {
+                      isFavorite = !isFavorite;
+                    });
+                  }
+                },
+                builder: (context, state) {
+                  return ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          isFavorite ? Colors.grey : Colors.red),
+                    ),
+                    onPressed: () {
+                      if (isFavorite) {
+                        BlocProvider.of<FavoritesBloc>(context).add(
+                            RemoveFromFavoritesEvent(product: widget.product));
+                      } else {
+                        BlocProvider.of<FavoritesBloc>(context)
+                            .add(AddToFavoritesEvent(product: widget.product));
+                      }
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(isFavorite
+                            ? 'Eliminar de Favoritos  '
+                            : 'Añadir a Favoritos  '),
+                        Icon(Icons.favorite, color: Colors.white),
+                      ],
+                    ),
+                  );
+                },
               ),
             ),
           ),
-        ]));
+        ],
+      ),
+    );
   }
 
   Future<void> launchUrl(String url) async {

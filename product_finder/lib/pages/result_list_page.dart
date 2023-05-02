@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:product_finder/models/producto.dart';
-import 'package:product_finder/pages/product_page.dart';
+import 'package:product_finder/pages/product/product_page.dart';
 
 class ResultList extends StatelessWidget {
   final List<Product> products;
