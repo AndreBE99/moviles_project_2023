@@ -1,8 +1,8 @@
 import 'dart:async';
+import 'package:product_finder/auth/user_auth_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:product_finder/auth/user_auth_repository.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
