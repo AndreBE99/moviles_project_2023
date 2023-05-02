@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
       home: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthErrorState) {
-            // TODO: revisar bug que no encuentra scaffold
             // ScaffoldMessenger.of(context).showSnackBar(
             //   SnackBar(
             //     content: Text("Favor de autenticarse. ${state.eMsg}"),

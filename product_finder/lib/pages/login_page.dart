@@ -5,8 +5,16 @@ import 'package:product_finder/auth/bloc/auth_bloc.dart';
 
 import 'register_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +65,7 @@ class LoginPage extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                         child: TextFormField(
+                          controller: _emailController,
                           decoration: InputDecoration(
                             hintText: 'Email',
                             enabledBorder: UnderlineInputBorder(
@@ -96,6 +105,7 @@ class LoginPage extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                         child: TextFormField(
+                          controller: _passwordController,
                           decoration: InputDecoration(
                             hintText: 'Password',
                             enabledBorder: UnderlineInputBorder(
@@ -135,7 +145,11 @@ class LoginPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(25),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          BlocProvider.of<AuthBloc>(context).add(EmailAuthEvent(
+                              email: _emailController.text.trim(),
+                              pass: _passwordController.text.trim()));
+                        },
                         child: Text(
                           'Iniciar sesión',
                           style: TextStyle(
