@@ -1,6 +1,6 @@
-import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:product_finder/auth/bloc/auth_bloc.dart';
 
 import 'register_page.dart';
@@ -168,12 +168,33 @@ class LoginPage extends StatelessWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          GoogleAuthButton(
-                            onPressed: () {
-                              // Bloc add event autenticacion con google event
-                              BlocProvider.of<AuthBloc>(context)
-                                  .add(GoogleAuthEvent());
-                            },
+                          Container(
+                            width: 250,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              color: Colors.redAccent,
+                            ),
+                            child: Center(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.account_balance,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    'Iniciar sesión con Google',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                           SizedBox(height: 20),
                           InkWell(
