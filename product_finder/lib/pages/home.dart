@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
             left: 0,
             right: 0,
             child: Image.asset(
-              'assets/images/login_bg.jpg',
+              'assets/images/home.jpg',
               fit: BoxFit.cover,
               height: MediaQuery.of(context).size.height * 0.25,
             ),

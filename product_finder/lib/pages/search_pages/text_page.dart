@@ -10,6 +10,18 @@ class TextPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.black,
+                Colors.grey,
+              ],
+            ),
+          ),
+        ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -27,7 +39,7 @@ class TextPage extends StatelessWidget {
                 height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/image.png'),
+                    image: AssetImage('assets/images/buscar3.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -36,25 +48,6 @@ class TextPage extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 68),
-                    Text(
-                      'Flutter Met',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      'Your place for searching ART',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ],
@@ -69,29 +62,41 @@ class TextPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: 48,
-            child: ElevatedButton(
-              onPressed: () {
-                BlocProvider.of<ProductBloc>(context)
-                    .add(LoadProductListEvent());
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        BlocBuilder<ProductBloc, ProductState>(
-                      builder: (context, state) {
-                        if (state is ProductListLoadedState) {
-                          return ResultList(products: state.productList);
-                        } else {
-                          return CircularProgressIndicator();
-                        }
-                      },
+          Center(
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 15),
+              child: SizedBox(
+                width: 125,
+                height: 48,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
                     ),
                   ),
-                );
-              },
-              child: Text('Search'),
+                  onPressed: () {
+                    BlocProvider.of<ProductBloc>(context)
+                        .add(LoadProductListEvent());
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            BlocBuilder<ProductBloc, ProductState>(
+                          builder: (context, state) {
+                            if (state is ProductListLoadedState) {
+                              return ResultList(products: state.productList);
+                            } else {
+                              return CircularProgressIndicator();
+                            }
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                  child: Text('Search'),
+                ),
+              ),
             ),
           ),
         ],

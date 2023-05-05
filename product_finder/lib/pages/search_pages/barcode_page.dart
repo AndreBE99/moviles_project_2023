@@ -39,6 +39,18 @@ class _MyAppState extends State<BarCodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Colors.black,
+                  Colors.grey,
+                ],
+              ),
+            ),
+          ),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -54,7 +66,7 @@ class _MyAppState extends State<BarCodePage> {
               height: 200,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/image.png'),
+                  image: AssetImage('assets/images/buscar1.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -62,30 +74,28 @@ class _MyAppState extends State<BarCodePage> {
                 alignment: Alignment.center,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Flutter Met',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      'Your place for searching ART',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () => scanBarcodeNormal(),
-              child: Text('Start barcode Scan'),
+            Center(
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(4, 20, 4, 15),
+                child: SizedBox(
+                  width: 200,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.all(4),
+                      backgroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    onPressed: () => scanBarcodeNormal(),
+                    child: Text('Start barcode Scan'),
+                  ),
+                ),
+              ),
             ),
             Text(
               'Scan result: $_scanBarcode \n',

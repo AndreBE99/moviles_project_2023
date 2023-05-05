@@ -51,6 +51,18 @@ class _MyHomePageState extends State<SpeechPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.black,
+                Colors.grey,
+              ],
+            ),
+          ),
+        ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -67,7 +79,7 @@ class _MyHomePageState extends State<SpeechPage> {
               height: 200,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/image.png'),
+                  image: AssetImage('assets/images/buscar2.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -75,35 +87,34 @@ class _MyHomePageState extends State<SpeechPage> {
                 alignment: Alignment.center,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Flutter Met',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      'Your place for searching ART',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ],
+                  // children: [
+                  //   Text(
+                  //     'Flutter Met',
+                  //     style: TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: 36,
+                  //       fontWeight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  //   SizedBox(height: 16),
+                  //   Text(
+                  //     'Your place for searching ART',
+                  //     style: TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: 18,
+                  //     ),
+                  //   ),
+                  // ],
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                'Press the microphone to hear the word',
-                style: TextStyle(fontSize: 20.0),
-              ),
-            ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+              ),
               onPressed: _speechToText.isNotListening
                   ? _startListening
                   : _stopListening,
