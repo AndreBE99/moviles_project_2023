@@ -1,6 +1,7 @@
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:product_finder/auth/bloc/auth_bloc.dart';
 
 import 'register_page.dart';
@@ -27,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
               left: 0,
               right: 0,
               child: Image.asset(
-                'assets/images/login_bg.jpg',
+                'assets/images/login.jpg',
                 fit: BoxFit.cover,
                 height: MediaQuery.of(context).size.height * 0.25,
               ),
