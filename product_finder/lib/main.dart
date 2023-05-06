@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:product_finder/auth/bloc/auth_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:product_finder/auth/bloc/auth_bloc.dart';
 import 'package:product_finder/pages/favorites/bloc/favorites_bloc.dart';
 import 'package:product_finder/pages/home_page.dart';
 import 'package:product_finder/pages/login_page.dart';
