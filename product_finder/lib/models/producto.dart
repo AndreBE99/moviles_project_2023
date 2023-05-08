@@ -21,4 +21,14 @@ class Product {
       url: json['url'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'imageUrl': imageUrl,
+      'description': description,
+      'price': price,
+      'url': url,
+    };
+  }
 }

@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:product_finder/models/producto.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 part 'favorites_event.dart';
 part 'favorites_state.dart';
 
 class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
-  final List<Product> _favorites = [];
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   FavoritesBloc() : super(FavoritesEmptyState()) {
     on<AddToFavoritesEvent>(_addToFavorites);
@@ -16,30 +19,74 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   }
 
   FutureOr<void> _addToFavorites(AddToFavoritesEvent event, emit) async {
-    _favorites.add(event.product);
-    print('Agregar a favoritos: ${event.product.name}');
-    emit(FavoriteAddedState());
+    final user = _auth.currentUser;
+    if (user != null) {
+      await _firestore
+          .collection('users')
+          .doc(user.uid)
+          .collection('favorites')
+          .add(event.product.toJson());
+      print('Agregar a favoritos: ${event.product.name}');
+      emit(FavoriteAddedState());
+    }
   }
 
   FutureOr<void> _removeFromFavorites(
       RemoveFromFavoritesEvent event, emit) async {
-    _favorites.remove(event.product);
-    print('Eliminar de favoritos: ${event.product.name}');
-    emit(FavoriteRemovedState());
+    final user = _auth.currentUser;
+    if (user != null) {
+      final snapshot = await _firestore
+          .collection('users')
+          .doc(user.uid)
+          .collection('favorites')
+          .where('url', isEqualTo: event.product.url)
+          .get();
+
+      if (!snapshot.docs.isEmpty) {
+        await _firestore
+            .collection('users')
+            .doc(user.uid)
+            .collection('favorites')
+            .doc(snapshot.docs.first.id)
+            .delete();
+
+        print('Eliminar de favoritos: ${event.product.name}');
+        emit(FavoriteRemovedState());
+      }
+    }
   }
 
   FutureOr<void> _checkIsFavorite(CheckIsFavoriteEvent event, emit) async {
-    final isFavorite =
-        _favorites.any((product) => product.url == event.product.url);
-    emit(FavoriteCheckedState(isFavorite: isFavorite));
+    final user = _auth.currentUser;
+    if (user != null) {
+      final snapshot = await _firestore
+          .collection('users')
+          .doc(user.uid)
+          .collection('favorites')
+          .where('url', isEqualTo: event.product.url)
+          .get();
+
+      emit(FavoriteCheckedState(isFavorite: !snapshot.docs.isEmpty));
+    }
   }
 
   FutureOr<void> _loadFavorites(LoadFavoritesEvent event, emit) async {
     print('Cargando favoritos');
-    if (_favorites.isEmpty) {
-      emit(FavoritesEmptyState());
-    } else {
-      emit(FavoritesLoadedState(favorites: _favorites));
+    final user = _auth.currentUser;
+    if (user != null) {
+      final snapshot = await _firestore
+          .collection('users')
+          .doc(user.uid)
+          .collection('favorites')
+          .get();
+
+      if (snapshot.docs.isEmpty) {
+        emit(FavoritesEmptyState());
+      } else {
+        final favorites =
+            snapshot.docs.map((doc) => Product.fromJson(doc.data())).toList();
+        emit(FavoritesLoadedState(favorites: favorites));
+      }
     }
   }
 }
