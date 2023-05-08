@@ -4,17 +4,17 @@ import 'package:product_finder/models/producto.dart';
 import 'package:product_finder/pages/favorites/bloc/favorites_bloc.dart';
 import 'package:product_finder/pages/product/product_page.dart';
 
-class FavoritesPage extends StatelessWidget {
+class FavoritesPage extends StatefulWidget {
+  @override
+  State<FavoritesPage> createState() => _FavoritesPageState();
+}
+
+class _FavoritesPageState extends State<FavoritesPage> {
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<FavoritesBloc>(context).add(LoadFavoritesEvent());
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Favoritos'),
-        backgroundColor: Colors.red,
-        centerTitle: true,
-      ),
       body: BlocBuilder<FavoritesBloc, FavoritesState>(
         builder: (context, state) {
           if (state is FavoritesLoadedState) {
