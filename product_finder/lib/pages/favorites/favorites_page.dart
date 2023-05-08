@@ -4,12 +4,7 @@ import 'package:product_finder/models/producto.dart';
 import 'package:product_finder/pages/favorites/bloc/favorites_bloc.dart';
 import 'package:product_finder/pages/product/product_page.dart';
 
-class FavoritesPage extends StatefulWidget {
-  @override
-  State<FavoritesPage> createState() => _FavoritesPageState();
-}
-
-class _FavoritesPageState extends State<FavoritesPage> {
+class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<FavoritesBloc>(context).add(LoadFavoritesEvent());
