@@ -54,6 +54,8 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
         emit(FavoriteRemovedState());
       }
     }
+    // Agrega a la cola de eventos la carga de favoritos
+    add(LoadFavoritesEvent());
   }
 
   FutureOr<void> _checkIsFavorite(CheckIsFavoriteEvent event, emit) async {
