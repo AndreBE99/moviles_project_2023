@@ -11,9 +11,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     on<LoadProductListEvent>(_loadProductList);
   }
 
-  FutureOr<void> _loadProductList(event, emit) async {
+  FutureOr<void> _loadProductList(LoadProductListEvent event, Emitter emit) async {
     try {
-      List<Product> productList = await getProductListFromJson();
+      List<Product> productList = await getProductListFromJson(event.searchValue);
       emit(ProductListLoadedState(productList: productList));
     } catch (e) {
       emit(ProductErrorState(errorMessage: e.toString()));

@@ -3,8 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:product_finder/pages/product/bloc/product_bloc.dart';
 import 'package:product_finder/pages/result_list_page.dart';
 
-class TextPage extends StatelessWidget {
+class TextPage extends StatefulWidget {
+
   const TextPage({super.key});
+
+  @override
+  State<TextPage> createState() => _TextPageState();
+}
+
+class _TextPageState extends State<TextPage> {
+  final _searchValue = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +63,7 @@ class TextPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16),
             child: TextField(
+              controller: _searchValue,
               decoration: InputDecoration(
                 hintText: 'Search',
                 prefixIcon: Icon(Icons.search),
@@ -77,7 +86,7 @@ class TextPage extends StatelessWidget {
                   ),
                   onPressed: () {
                     BlocProvider.of<ProductBloc>(context)
-                        .add(LoadProductListEvent());
+                        .add(LoadProductListEvent(searchValue: _searchValue.text.trim()));
                     Navigator.push(
                       context,
                       MaterialPageRoute(

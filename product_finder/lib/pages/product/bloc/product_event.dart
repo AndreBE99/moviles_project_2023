@@ -1,5 +1,13 @@
 part of 'product_bloc.dart';
 
-abstract class ProductEvent {}
+abstract class ProductEvent {
+  final String searchValue;
 
-class LoadProductListEvent extends ProductEvent {}
+  ProductEvent({required this.searchValue});
+
+  List<Object> get props => [searchValue];
+}
+
+class LoadProductListEvent extends ProductEvent {
+  LoadProductListEvent({required super.searchValue});
+}
