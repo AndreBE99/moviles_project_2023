@@ -83,30 +83,6 @@ class _MyHomePageState extends State<SpeechPage> {
                   fit: BoxFit.cover,
                 ),
               ),
-              child: Container(
-                alignment: Alignment.center,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // children: [
-                  //   Text(
-                  //     'Flutter Met',
-                  //     style: TextStyle(
-                  //       color: Colors.white,
-                  //       fontSize: 36,
-                  //       fontWeight: FontWeight.bold,
-                  //     ),
-                  //   ),
-                  //   SizedBox(height: 16),
-                  //   Text(
-                  //     'Your place for searching ART',
-                  //     style: TextStyle(
-                  //       color: Colors.white,
-                  //       fontSize: 18,
-                  //     ),
-                  //   ),
-                  // ],
-                ),
-              ),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(

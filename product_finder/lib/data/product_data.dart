@@ -2,8 +2,22 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:product_finder/models/producto.dart';
 
-Future<List<Product>> getProductListFromJson() async {
+Future<List<Product>> getProductListFromJson(
+    String searchValue, bool op) async {
   String jsonString = await rootBundle.loadString('assets/product.json');
   List<dynamic> jsonResponse = jsonDecode(jsonString);
-  return jsonResponse.map((product) => Product.fromJson(product)).toList();
+  if (op == false) {
+    List<Product> productList = jsonResponse
+        .map((product) => Product.fromJson(product))
+        .where((product) =>
+            product.name.toLowerCase().contains(searchValue.toLowerCase()))
+        .toList();
+    return productList;
+  } else {
+    List<Product> productList = jsonResponse
+        .map((product) => Product.fromJson(product))
+        .where((product) => product.barcode.contains(searchValue.toLowerCase()))
+        .toList();
+    return productList;
+  }
 }
