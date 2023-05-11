@@ -35,7 +35,8 @@ class _TextPageState extends State<TextPage> {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('Material App Bar'),
+        title: Text('Search by Text'),
+        centerTitle: true,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

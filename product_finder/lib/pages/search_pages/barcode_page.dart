@@ -57,7 +57,8 @@ class _MyAppState extends State<BarCodePage> {
               Navigator.of(context).pop();
             },
           ),
-          title: Text('Material App Bar'),
+          title: Text('Search by Barcode'),
+          centerTitle: true,
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

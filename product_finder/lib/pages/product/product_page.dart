@@ -29,24 +29,25 @@ class _ProductPageState extends State<ProductPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: true,
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.black,
+                Colors.grey,
+              ],
+            ),
+          ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
           },
-          child: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-            size: 24,
-          ),
         ),
-        title: Text(
-          widget.product.name,
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
+        title: Text(widget.product.name),
         centerTitle: true,
       ),
       body: Column(

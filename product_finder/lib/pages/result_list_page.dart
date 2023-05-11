@@ -11,24 +11,25 @@ class ResultList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: true,
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.black,
+                Colors.grey,
+              ],
+            ),
+          ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
           },
-          child: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-            size: 24,
-          ),
         ),
-        title: Text(
-          'Lista de productos',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
+        title: Text('Product List'),
         centerTitle: true,
       ),
       body: ListView.builder(

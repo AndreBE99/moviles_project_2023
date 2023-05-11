@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "1088798039442",
+    "project_id": "nombre-original-dcc1e",
+    "storage_bucket": "nombre-original-dcc1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088798039442:android:4ae40acfb9b97faa3f354b",
+        "android_client_info": {
+          "package_name": "com.example.bibliobook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088798039442-c0pk6t3luiaecqe0t7b0lr8g4ddj7708.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bibliobook",
+            "certificate_hash": "30895a466b1ca6ecfb7ef8180da9930b8b29e19e"
+          }
+        },
+        {
+          "client_id": "1088798039442-jshgkm0c81oauo1hh4h9smsi0si875of.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bibliobook",
+            "certificate_hash": "c4ad50c44cb0e3b6552332767aad32c2a9539114"
+          }
+        },
+        {
+          "client_id": "1088798039442-v2s1r976gesuefq13ah1fqk34om72s2q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bibliobook",
+            "certificate_hash": "dd30cf90b32be13f9dcd991ec561d8c41856cd56"
+          }
+        },
+        {
+          "client_id": "1088798039442-eqsnc9ubpjkaljgle7dvosnhfsga7rmr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSXjdP0whL-SX2e8Arc9rlAUKnVEt_KSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088798039442-eqsnc9ubpjkaljgle7dvosnhfsga7rmr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

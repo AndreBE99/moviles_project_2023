@@ -69,7 +69,8 @@ class _MyHomePageState extends State<SpeechPage> {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('Material App Bar'),
+        title: Text('Search by Voice'),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(

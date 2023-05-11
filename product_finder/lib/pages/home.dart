@@ -34,21 +34,10 @@ class Home extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Transform.translate(
-                  offset: Offset(0, -60), // mueve 20 pixeles hacia arriba
-                  child: Text(
-                    'ProductFinder',
-                    style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
                 Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 15),
                     child: Text(
-                      "Buscar por",
+                      "Busqueda por",
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
