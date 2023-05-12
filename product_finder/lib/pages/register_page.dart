@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:product_finder/auth/bloc/auth_bloc.dart';
 import 'package:product_finder/pages/login_page.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +63,7 @@ class RegisterPage extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                         child: TextFormField(
+                          controller: _emailController,
                           decoration: InputDecoration(
                             hintText: 'Email',
                             enabledBorder: UnderlineInputBorder(
@@ -92,6 +103,7 @@ class RegisterPage extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                         child: TextFormField(
+                          controller: _passwordController,
                           decoration: InputDecoration(
                             hintText: 'Password',
                             enabledBorder: UnderlineInputBorder(
@@ -131,9 +143,13 @@ class RegisterPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(25),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          BlocProvider.of<AuthBloc>(context).add(EmailRegEvent(
+                              email: _emailController.text.trim(),
+                              pass: _passwordController.text.trim()));
+                        },
                         child: Text(
-                          'Iniciar sesión',
+                          'Registrarme',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,

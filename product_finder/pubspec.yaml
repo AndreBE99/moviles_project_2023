@@ -9,13 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # exernal and web
-  webview_flutter: ^4.0.7
-  share_plus: ^6.3.2
-  url_launcher: ^6.1.10
   # Auth buttons
   auth_buttons: ^3.0.0
-  font_awesome_flutter: ^10.4.0
   # State management packages
   provider:
   flutter_bloc:
@@ -28,15 +23,10 @@ dependencies:
   firebase_storage: ^11.1.0
   flutterfire_ui: ^0.4.3+20
   google_sign_in:
-  # storage and files
-  path_provider: ^2.0.14
-  image_picker: ^0.8.7+2
-  video_player: ^2.6.1
-  record: ^4.4.4
-  audio_waveforms: ^1.0.4
   # product finder
   flutter_barcode_scanner:
   speech_to_text: ^6.1.1
+  url_launcher: ^6.1.10
 
 dev_dependencies:
   flutter_test:
@@ -54,7 +44,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/icons/app_icon.png
+    # - assets/icons/app_icon.png
     - assets/product.json
     - assets/images/
   #   - images/a_dot_ham.jpeg

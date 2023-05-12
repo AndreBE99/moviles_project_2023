@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:product_finder/auth/bloc/auth_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:product_finder/auth/bloc/auth_bloc.dart';
 import 'package:product_finder/pages/favorites/bloc/favorites_bloc.dart';
 import 'package:product_finder/pages/home_page.dart';
 import 'package:product_finder/pages/login_page.dart';
@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
       home: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthErrorState) {
-            // TODO: revisar bug que no encuentra scaffold
             // ScaffoldMessenger.of(context).showSnackBar(
             //   SnackBar(
             //     content: Text("Favor de autenticarse. ${state.eMsg}"),
