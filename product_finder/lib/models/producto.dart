@@ -23,4 +23,14 @@ class Product {
         url: json['url'],
         barcode: json['barcode']);
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'imageUrl': imageUrl,
+      'description': description,
+      'price': price,
+      'url': url,
+    };
+  }
 }

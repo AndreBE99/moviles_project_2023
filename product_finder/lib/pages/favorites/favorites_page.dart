@@ -33,16 +33,61 @@ class FavoritesPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 15),
-                    child: Text(
-                      "Favorite List",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    )),
-                Row()
+                  padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 15),
+                  child: Text(
+                    "Favorite List",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                BlocBuilder<FavoritesBloc, FavoritesState>(
+                  builder: (context, state) {
+                    if (state is FavoritesLoadedState) {
+                      final favorites = state.favorites;
+                      return ListView.builder(
+                        itemCount: favorites.length,
+                        itemBuilder: (context, index) {
+                          Product product = favorites[index];
+                          return ListTile(
+                            leading: Image.network(
+                              product.imageUrl,
+                              width: 50,
+                              height: 50,
+                              fit: BoxFit.contain,
+                            ),
+                            title: Text(product.name),
+                            subtitle: Text('Precio: \$${product.price}'),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      ProductPage(product: product),
+                                ),
+                              );
+                            },
+                            trailing: IconButton(
+                              icon: Icon(Icons.remove_circle),
+                              onPressed: () {
+                                BlocProvider.of<FavoritesBloc>(context).add(
+                                    RemoveFromFavoritesEvent(product: product));
+                              },
+                            ),
+                          );
+                        },
+                      );
+                    } else if (state is FavoritesEmptyState) {
+                      return Center(
+                        child:
+                            Text('No hay productos en la lista de favoritos.'),
+                      );
+                    }
+                    return Container();
+                  },
+                ),
               ],
             ),
           ),
@@ -51,3 +96,50 @@ class FavoritesPage extends StatelessWidget {
     );
   }
 }
+
+
+// return Scaffold(
+//       body: BlocBuilder<FavoritesBloc, FavoritesState>(
+//         builder: (context, state) {
+//           if (state is FavoritesLoadedState) {
+//             final favorites = state.favorites;
+//             return ListView.builder(
+//               itemCount: favorites.length,
+//               itemBuilder: (context, index) {
+//                 Product product = favorites[index];
+//                 return ListTile(
+//                   leading: Image.network(
+//                     product.imageUrl,
+//                     width: 50,
+//                     height: 50,
+//                     fit: BoxFit.contain,
+//                   ),
+//                   title: Text(product.name),
+//                   subtitle: Text('Precio: \$${product.price}'),
+//                   onTap: () {
+//                     Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                         builder: (context) => ProductPage(product: product),
+//                       ),
+//                     );
+//                   },
+//                   trailing: IconButton(
+//                     icon: Icon(Icons.remove_circle),
+//                     onPressed: () {
+//                       BlocProvider.of<FavoritesBloc>(context)
+//                           .add(RemoveFromFavoritesEvent(product: product));
+//                     },
+//                   ),
+//                 );
+//               },
+//             );
+//           } else if (state is FavoritesEmptyState) {
+//             return Center(
+//               child: Text('No hay productos en la lista de favoritos.'),
+//             );
+//           }
+//           return Container();
+//         },
+//       ),
+//     );
