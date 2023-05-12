@@ -134,7 +134,7 @@ class _MyHomePageState extends State<SpeechPage> {
                     onPressed: () {
                       BlocProvider.of<ProductBloc>(context).add(
                           LoadProductListEvent(
-                              searchValue: _lastWords, op: false));
+                              searchValue: _lastWords, op: false, range: -1));
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -142,7 +142,10 @@ class _MyHomePageState extends State<SpeechPage> {
                               BlocBuilder<ProductBloc, ProductState>(
                             builder: (context, state) {
                               if (state is ProductListLoadedState) {
-                                return ResultList(products: state.productList);
+                                return ResultList(
+                                  products: state.productList,
+                                  range: -1,
+                                );
                               } else {
                                 return CircularProgressIndicator();
                               }

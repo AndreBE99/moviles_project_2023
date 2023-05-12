@@ -117,7 +117,7 @@ class _MyAppState extends State<BarCodePage> {
                     onPressed: () {
                       BlocProvider.of<ProductBloc>(context).add(
                           LoadProductListEvent(
-                              searchValue: _scanBarcode, op: true));
+                              searchValue: _scanBarcode, op: true, range: -1));
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -125,7 +125,10 @@ class _MyAppState extends State<BarCodePage> {
                               BlocBuilder<ProductBloc, ProductState>(
                             builder: (context, state) {
                               if (state is ProductListLoadedState) {
-                                return ResultList(products: state.productList);
+                                return ResultList(
+                                  products: state.productList,
+                                  range: -1,
+                                );
                               } else {
                                 return CircularProgressIndicator();
                               }

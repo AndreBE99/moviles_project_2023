@@ -10,6 +10,10 @@ import 'package:product_finder/pages/product/bloc/product_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  assert(() {
+    debugPrint = (String? message, {int? wrapWidth}) {};
+    return true;
+  }());
   runApp(
     MultiBlocProvider(
       providers: [

@@ -87,9 +87,9 @@ class FavoritesPage extends StatelessWidget {
                         child:
                             Text('No hay productos en la lista de favoritos.'),
                       );
+                    } else {
+                      return CircularProgressIndicator();
                     }
-
-                    return Container();
                   },
                 ),
               ],

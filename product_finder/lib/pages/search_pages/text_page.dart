@@ -87,7 +87,9 @@ class _TextPageState extends State<TextPage> {
                   onPressed: () {
                     BlocProvider.of<ProductBloc>(context).add(
                         LoadProductListEvent(
-                            searchValue: _searchValue.text.trim(), op: false));
+                            searchValue: _searchValue.text.trim(),
+                            op: false,
+                            range: -1));
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -95,7 +97,10 @@ class _TextPageState extends State<TextPage> {
                             BlocBuilder<ProductBloc, ProductState>(
                           builder: (context, state) {
                             if (state is ProductListLoadedState) {
-                              return ResultList(products: state.productList);
+                              return ResultList(
+                                products: state.productList,
+                                range: -1,
+                              );
                             } else {
                               return CircularProgressIndicator();
                             }

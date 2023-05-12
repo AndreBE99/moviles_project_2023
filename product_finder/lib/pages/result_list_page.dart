@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:product_finder/models/producto.dart';
+import 'package:product_finder/pages/product/bloc/product_bloc.dart';
 import 'package:product_finder/pages/product/product_page.dart';
 
 class ResultList extends StatefulWidget {
   final List<Product> products;
+  final double range;
 
-  ResultList({super.key, required this.products});
+  ResultList({super.key, required this.products, required this.range});
 
   @override
   State<ResultList> createState() => _ResultListState();
 }
 
 class _ResultListState extends State<ResultList> {
+  TextEditingController priceRangeController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,6 +100,7 @@ class _ResultListState extends State<ResultList> {
                 children: [
                   Expanded(
                     child: TextField(
+                      controller: priceRangeController,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: 'Precio máximo',
@@ -115,7 +121,24 @@ class _ResultListState extends State<ResultList> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        BlocBuilder<ProductBloc, ProductState>(
+                      builder: (context, state) {
+                        if (state is ProductListLoadedState) {
+                          return ResultList(
+                            products: state.productList,
+                            range: double.parse(priceRangeController.text),
+                          );
+                        } else {
+                          return CircularProgressIndicator();
+                        }
+                      },
+                    ),
+                  ),
+                );
               },
               child: Text('Filtrar'),
             )
