@@ -78,5 +78,45 @@
         "description":"La tecnología inalámbrica LIGHTSPEED te proporciona más de 29 horas de duración de batería y hasta 20 metros de libertad inalámbrica confiable",
         "price":"2,645.00",
         "url":"https://www.amazon.com.mx/Logitech-LIGHTSPEED-Audífonos-Inalámbricos-tecnología/dp/B081415GCS/ref=asc_df_B081415GCS/?tag=gledskshopmx-20&linkCode=df0&hvadid=451094458318&hvpos=&hvnetw=g&hvrand=15273847681844688375&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1010088&hvtargid=pla-954467635673&psc=1"
+    },
+    {
+        "barcode": "123456789",
+        "name": "Kit de cepillo de limpieza de teclado 5 en 1, extractor de teclas",
+        "imageUrl": "https://ae01.alicdn.com/kf/S608af018b73445efafdebc59a7d969cc2/Kit-de-cepillo-de-limpieza-de-teclado-5-en-1-extractor-de-teclas-limpiador-de-auriculares.jpg_Q90.jpg_.webp",
+        "description": "Kit de cepillo de limpieza de teclado 5 en 1, extractor de teclas, limpiador de auriculares para Airpods Pro 1, 2, 3, herramientas de limpieza de estuches de auriculares Bluetooth",
+        "price": "17.22",
+        "url": "https://es.aliexpress.com/item/1005005034411425.html?spm=a2g0o.order_list.order_list_main.10.5e50194d6t9KWY&gatewayAdapt=glo2esp"
+    },
+    {
+        "barcode": "123456789",
+        "name": "HEYSTOP-Bolsa de transporte para Nintendo Switch",
+        "imageUrl": "https://ae01.alicdn.com/kf/S4a2c9da58cee4e8b862f825920a33e8fl/HEYSTOP-Bolsa-de-transporte-para-Nintendo-Switch-estuche-9-en-1-Kit-de-accesorios-para-Nintendo.jpg_Q90.jpg_.webp",
+        "description": "HEYSTOP-Bolsa de transporte para Nintendo Switch, estuche 9 en 1, Kit de accesorios para Nintendo Switch y agarre para el pulgar, 6 unidades",
+        "price": "212.91",
+        "url": "https://es.aliexpress.com/item/1005003128441437.html?spm=a2g0o.order_list.order_list_main.16.5e50194d6t9KWY&gatewayAdapt=glo2esp"
+    },
+    {
+        "barcode": "123456789",
+        "name": "Hagibis Switch Dock TV Dock SWC01",
+        "imageUrl": "https://ae01.alicdn.com/kf/S444a7487577d459b801534d0caa43601v/Hagibis-Switch-Dock-TV-Dock-SWC01-Estaci-n-de-acoplamiento-port-til-USB-C-a-4K.jpg_Q90.jpg_.webp",
+        "description": "Hagibis Switch Dock TV Dock SWC01 Estación de acoplamiento portátil USB C a 4K HDMI USB 3,0 Hub para Nintendo Laptops PC iPad",
+        "price": "193.90",
+        "url": "https://es.aliexpress.com/item/1005004907996123.html?spm=a2g0o.order_list.order_list_main.22.5e50194d6t9KWY&gatewayAdapt=glo2esp"
+    },
+    {
+        "barcode": "123456789",
+        "name": "Correas de muñeca de tracción dura de algodón",
+        "imageUrl": "https://ae01.alicdn.com/kf/S9740929939e647baba44bba46c3144c41/Correas-de-mu-eca-de-tracci-n-dura-de-algod-n-levantamiento-de-pesas-correas-Deadlift.png_.webp",
+        "description": "Correas de muñeca de tracción dura de algodón, levantamiento de pesas, correas Deadlift, muñeca acolchada de neopreno y silicona antideslizante",
+        "price": "92.02",
+        "url": "https://es.aliexpress.com/item/1005004701226718.html?spm=a2g0o.order_list.order_list_main.28.5e50194d6t9KWY&gatewayAdapt=glo2esp"
+    },
+    {
+        "barcode": "123456789",
+        "name": "Funda y correa para Samsung Galaxy Watch Active 2",
+        "imageUrl": "https://ae01.alicdn.com/kf/Haaf8c678ada34566a9a1f67595fc7714y/Funda-y-correa-para-Samsung-Galaxy-Watch-Active-2-pulsera-de-bucle-magn-tico-con-funda.jpg_Q90.jpg_.webp",
+        "description": "Funda y correa para Samsung Galaxy Watch Active 2, pulsera de bucle magnético con funda, 40mm, 44mm, 1, 2",
+        "price": "53.99",
+        "url": "https://es.aliexpress.com/item/1005002991053938.html?spm=a2g0o.order_list.order_list_main.40.5e50194d6t9KWY&gatewayAdapt=glo2esp"
     }
 ]
