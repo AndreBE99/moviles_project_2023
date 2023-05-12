@@ -1,8 +1,5 @@
-// import 'dart:convert';
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
-// import 'package:flutter/services.dart';
 import 'package:product_finder/models/producto.dart';
 
 Future<List<Product>> getProductListFromJson(
