@@ -40,7 +40,7 @@
         "url": "https://www.amazon.com.mx/Apple-Pulgadas-Wi-Fi-Espacial-Reacondicionado/dp/B0B493Q7P5/ref=sr_1_4?pd_rd_r=56404683-a36a-49bf-8b92-51efadc06b0f&pd_rd_w=F6eWj&pd_rd_wg=XlJRB&pf_rd_p=e03b95ac-3efd-437d-835f-025001a18c0b&pf_rd_r=WPAY72QSGBJSZP83VERM&qid=1683784605&rnid=9687880011&s=electronics&sr=1-4"
     },
     {
-        "barcode":"12312",
+        "barcode":"R31999471",
         "name": "Razer Naga Pro",
         "imageUrl":"https://ddtech.mx/assets/uploads/4f0fe56dbcd251995d737d77975c9b86.jpg",
         "description":"Mouse Gamer Razer Naga PRO / Control DPIs / Retroiluminado RGB Chroma / 20000 DPIs / 3 Paneles laterales / RZ01-03420100-R3U1",
@@ -48,35 +48,35 @@
         "url":"https://ddtech.mx/producto/mouse-gamer-razer-naga-pro-control-dpis-retroiluminado-rgb-chroma-20000-dpis-3-paneles-laterales-rz01-03420100-r3u1?id=9545"
     },
     {
-        "barcode":"1",
+        "barcode":"R31999471",
         "name":"Teclado Gamer Razer Deathstalker V2 Pro Tenkeyless Wireless",
         "imageUrl":"https://http2.mlstatic.com/D_NQ_NP_676004-MLM53734148927_022023-O.webp",
         "description":"El rendimiento y la durabilidad de alto nivel son más compactos que nunca con el Razer DeathStalker V2 Pro TKL, un teclado óptico inalámbrico ultrafino sin teclado numérico. Con Razer™ HyperSpeed Wireless y switches de perfil bajo que facilitan un juego ultrasensible en una estructura compacta e increíblemente duradera.",
-        "price":"5499",
+        "price":"5,499.00",
         "url":"https://articulo.mercadolibre.com.mx/MLM-1814938889-teclado-gamer-razer-deathstalker-v2-pro-tenkeyless-wireless-_JM?matt_tool=78527612&matt_word=&matt_source=google&matt_campaign_id=19640949742&matt_ad_group_id=148636916071&matt_match_type=&matt_network=g&matt_device=c&matt_creative=646734338815&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=273558031&matt_product_id=MLM1814938889&matt_product_partition_id=1941943047028&matt_target_id=pla-1941943047028&gclid=Cj0KCQjwpPKiBhDvARIsACn-gzDKgrilS8few4GosC_HXPS-kB86aOIzFQUgRsQnCr6DkwPSe5XOZqUaArS5EALw_wcB"
     },
     {
-        "barcode":"1",
+        "barcode":"R31999471",
         "name":"Samsung Galaxy S23 Ultra",
         "imageUrl":"https://images.samsung.com/is/image/samsung/assets/mx/smartphones/galaxy-s23-ultra/s23-ultra-folding-banners.png?$PD_SHOP_MAIN$",
         "description":"El llamativo diseño simétrico de Ultra vuelve con una gran diferencia: materiales reciclados y respetuosos con el medio ambiente. Desde la estructura metálica hasta el acabado del cristal, está pulido con nuevos colores frescos inspirados en la naturaleza",
-        "price":"30,999",
+        "price":"30,999.00",
         "url":"https://www.samsung.com/mx/smartphones/galaxy-s23-ultra/buy/?cid=mx_pd_ppc_google_s23-series_launch_dmd-pf-broadmatch_text_230303_19634059590-144339436245-kwd-1463925986346-649906813870-samsung%20s23%20ultra_pfm&gclid=Cj0KCQjwpPKiBhDvARIsACn-gzDgupSPAkHA9JxetcdZVkTHslr6Sonz9Z1nR8TwcOOCZWAGJutY0fIaAmS4EALw_wcB"
     },
     {
-        "barcode":"",
+        "barcode":"R31999471",
         "name":"Dell G7 15.6 Laptop ",
         "imageUrl":"https://m.media-amazon.com/images/I/61C24ORNsZL._AC_SX679_.jpg",
         "description":"Eighth-generation Intel Core i7-8750H processor, 8GB system memory for advanced multitasking, 256GB solid state drive",
-        "price":"36,050",
+        "price":"36,050.00",
         "url":"https://www.amazon.com.mx/Dell-G7-15-6-Laptop-I7588-7385BLK-PUS/dp/B07CRC74WK"
     },
     {
-        "barcode":"123",
+        "barcode":"R31999471 ",
         "name":"Logitech G733 LIGHTSPEED",
         "imageUrl":"https://m.media-amazon.com/images/I/71xNjrzG69L._AC_SX679_.jpg",
         "description":"La tecnología inalámbrica LIGHTSPEED te proporciona más de 29 horas de duración de batería y hasta 20 metros de libertad inalámbrica confiable",
-        "price":"2645",
+        "price":"2,645.00",
         "url":"https://www.amazon.com.mx/Logitech-LIGHTSPEED-Audífonos-Inalámbricos-tecnología/dp/B081415GCS/ref=asc_df_B081415GCS/?tag=gledskshopmx-20&linkCode=df0&hvadid=451094458318&hvpos=&hvnetw=g&hvrand=15273847681844688375&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1010088&hvtargid=pla-954467635673&psc=1"
     }
 ]

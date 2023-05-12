@@ -16,7 +16,8 @@ Future<List<Product>> getProductListFromJson(
   } else {
     List<Product> productList = jsonResponse
         .map((product) => Product.fromJson(product))
-        .where((product) => product.barcode.contains(searchValue.toLowerCase()))
+        .where((product) =>
+            product.barcode.toLowerCase().contains(searchValue.toLowerCase()))
         .toList();
     return productList;
   }

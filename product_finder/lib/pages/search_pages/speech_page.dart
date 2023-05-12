@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import "package:speech_to_text/speech_recognition_result.dart";
 import 'package:speech_to_text/speech_to_text.dart';
+import 'package:product_finder/pages/product/bloc/product_bloc.dart';
+import 'package:product_finder/pages/result_list_page.dart';
 
 void main() {
   runApp(SpeechPage());
@@ -112,6 +115,44 @@ class _MyHomePageState extends State<SpeechPage> {
                       : _speechEnabled
                           ? 'Tap the microphone to start listening...'
                           : 'Speech not available',
+                ),
+              ),
+            ),
+            Center(
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 15),
+                child: SizedBox(
+                  width: 125,
+                  height: 48,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    onPressed: () {
+                      BlocProvider.of<ProductBloc>(context).add(
+                          LoadProductListEvent(
+                              searchValue: _lastWords, op: false));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              BlocBuilder<ProductBloc, ProductState>(
+                            builder: (context, state) {
+                              if (state is ProductListLoadedState) {
+                                return ResultList(products: state.productList);
+                              } else {
+                                return CircularProgressIndicator();
+                              }
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                    child: Text('Search'),
+                  ),
                 ),
               ),
             ),
