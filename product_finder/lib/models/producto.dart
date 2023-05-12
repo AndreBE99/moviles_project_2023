@@ -31,6 +31,7 @@ class Product {
       'description': description,
       'price': price,
       'url': url,
+      'barcode': barcode
     };
   }
 }

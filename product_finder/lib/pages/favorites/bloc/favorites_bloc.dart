@@ -83,14 +83,11 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
           .get();
 
       if (snapshot.docs.isEmpty) {
-        print("SNAPSHOT == EMPTY");
         emit(FavoritesEmptyState());
       } else {
-        print("SNAPSHOT = ${snapshot.docs}");
         try {
           final favorites =
               snapshot.docs.map((doc) => Product.fromJson(doc.data())).toList();
-          print("LIST: ${favorites}");
           emit(FavoritesLoadedState(favorites: favorites));
         } catch (e) {
           print("ERROR: ${e}");
