@@ -25,7 +25,7 @@ class _RegisterPageState extends State<RegisterPage> {
               left: 0,
               right: 0,
               child: Image.asset(
-                'assets/images/login_bg.jpg',
+                'assets/images/login.jpg',
                 fit: BoxFit.cover,
                 height: MediaQuery.of(context).size.height * 0.25,
               ),

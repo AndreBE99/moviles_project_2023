@@ -21,3 +21,5 @@ class CheckIsFavoriteEvent extends FavoritesEvent {
 }
 
 class LoadFavoritesEvent extends FavoritesEvent {}
+
+class SignOutEvent2 extends FavoritesEvent {}

@@ -16,6 +16,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
     on<RemoveFromFavoritesEvent>(_removeFromFavorites);
     on<CheckIsFavoriteEvent>(_checkIsFavorite);
     on<LoadFavoritesEvent>(_loadFavorites);
+    on<SignOutEvent2>(_mapEventToState);
   }
 
   FutureOr<void> _addToFavorites(AddToFavoritesEvent event, emit) async {
@@ -70,6 +71,10 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
 
       emit(FavoriteCheckedState(isFavorite: !snapshot.docs.isEmpty));
     }
+  }
+
+  FutureOr<void> _mapEventToState(SignOutEvent2 event, emit) async {
+    emit(FavoritesEmptyState());
   }
 
   FutureOr<void> _loadFavorites(LoadFavoritesEvent event, emit) async {
